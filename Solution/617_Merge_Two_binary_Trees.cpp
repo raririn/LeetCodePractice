@@ -18,11 +18,9 @@ public:
             t3->right = mergeTrees(t1->right, t2->right);
         }
         if (t1->right&& !(t2->right)){  /* If there is a single child, copy it */
-            cout<<"right added"<<endl;
             t3->right = t1->right;
         }
         if ((!t1->right)&& t2->right){  /* If there is a single child, copy it */
-            cout<<"right added"<<endl;
             t3->right = t2->right;
         } 
         
