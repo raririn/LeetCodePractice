@@ -17,3 +17,8 @@ class Solution:
                 else:
                     bits_list[i] = bits_list[powval] + bits_list[i - powval]
         return bits_list
+
+'''
+Runtime: 84 ms, faster than 30.68% of Python online submissions for Counting Bits.
+Memory Usage: 15.8 MB, less than 18.18% of Python online submissions for Counting Bits.
+'''
