@@ -1,48 +1,30 @@
 class Solution:
-    def gameOfLife(self, board):
+    def gameOfLife(self, board: List[List[int]]) -> None:
         """
-        :type board: List[List[int]]
-        :rtype: void Do not return anything, modify board in-place instead.
+        Do not return anything, modify board in-place instead.
         """
+        self.board = board
+        self.l = len(board)
+        self.w = len(board[0])
+        status = [[0] * self.w] * self.l
+        for i in range(self.l):
+            for j in range(self.w):
+    
+    def statusUpdate(prev: int, neighbors: int) -> int:
+        if prev and (neighbors < 2 or neighbors == 4):
+            return 0
+        if (not prev) and (neighbors == 3):
+            return 1
+        return prev
 
-        # Not solved, did not understand the problem
-        l = len(board)
-        w = len(board[0])
-        neighboard = [[None]*w]*l
-        for i in range(l):
-            for j in range(w):
-                neighbor = 0
-                if i > 0:
-                    if board[i-1][j]:
-                        neighbor += 1
-                    if j > 0:
-                        if board[i-1][j-1]:
-                            neighbor += 1
-                if j > 0:
-                    if board[i][j-1]:
-                        neighbor += 1
-                    if i < l - 1:
-                        if board[i+1][j-1]:
-                            neighbor += 1
-                if i < l - 1:
-                    if board[i+1][j]:
-                        neighbor += 1
-                    if j < w - 1:
-                        if board[i+1][j+1]:
-                            neighbor += 1                
-                if j < w - 1:
-                    if board[i][j+1]:
-                        neighbor += 1
-                    if i > 0:
-                        if board[i-1][j+1]:
-                            neighbor += 1
-                neighboard[i][j] = neighbor
-        for i in range(l):
-            for j in range(w):
-                if board[i][j]:
-                    if not neighboard[i][j] in [2,3]:
-                        board[i][j] = 0
-                else:
-                    if neighboard[i][j] == 3:
-                        board[i][j] = 1
-        return
+    def countLivingNeighbor(self, cell: List[int]) -> int:
+        count = 0
+        if cell[0] >= 1 and self.board[cell[0]-1][cell[1]]:
+            count = count + 1
+        if cell[0] <= self.l - 2 and self.board[cell[0]+1][cell[1]]:
+            count = count + 1
+        if cell[1] >= 1 and self.board[cell[0]][cell[1]-1]:
+            count = count + 1
+        if cell[1] <= self.w - 2 and self.board[cell[0]][cell[1]+1]:
+            count = count + 1
+        return count
