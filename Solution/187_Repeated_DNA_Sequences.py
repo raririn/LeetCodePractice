@@ -23,3 +23,8 @@ class Solution:
                 ret.append(toStr(h))
             d[h] = d.get(h, 0) + 1
         return ret
+
+'''
+Runtime: 220 ms, faster than 5.05% of Python3 online submissions for Repeated DNA Sequences.
+Memory Usage: 25.7 MB, less than 66.67% of Python3 online submissions for Repeated DNA Sequences.
+'''
