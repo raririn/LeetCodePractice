@@ -1,6 +1,5 @@
 class TicTacToe(object):
 
-
     def __init__(self, n: int) -> None:
         self.n = n
         self._board = [['.']*n for _ in range(n)]
